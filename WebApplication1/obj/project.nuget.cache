@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wm7Wr3o05mmoyadyG/t0bk5RD1t3aOJywLZOzdWsKulO+ZTpgLDJCnAYvjMohertATDYdGzipGRA5RQOvI6qew==",
+  "dgSpecHash": "ww6HU3amDKzATD7L9kTtrMVRLlZKPnCnBnlS2A8q9nARzbh1Wi2WzGgaLcJYsNRKY1V6v3oHOiS/1eGOWh32Ww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vacev\\Desktop\\APICore_SP\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\vacev\\Desktop\\PruebaINABVE\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vacev\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.7\\microsoft.aspnet.cors.5.2.7.nupkg.sha512",
     "C:\\Users\\vacev\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",

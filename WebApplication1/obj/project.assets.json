@@ -7126,11 +7126,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vacev\\Desktop\\APICore_SP\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\vacev\\Desktop\\PruebaINABVE\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\vacev\\Desktop\\APICore_SP\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\vacev\\Desktop\\PruebaINABVE\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\vacev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vacev\\Desktop\\APICore_SP\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\vacev\\Desktop\\PruebaINABVE\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -32,8 +32,10 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddScoped<UsuarioRepository>();
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+            services.AddScoped<VeteranoRepository>();
+            services.AddScoped<BeneficioRepository>();
+            services.AddScoped<BeneficiosVeteranosRepository>();
+            services.AddDbContext<INABVEContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
             services.AddControllers();
         }
 
