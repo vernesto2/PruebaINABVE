@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
             _beneficiosVeteranosRepository = BeneficiosVeteranosRepository ?? throw new ArgumentException(nameof(BeneficiosVeteranosRepository));
         }
         // GET: api/<UsuarioController>
-        [HttpGet("listaractivos")]
+        [HttpGet("listar")]
         public async Task<List<BeneficiosVeteranos>> ListarActivos ()
         {
             return await _beneficiosVeteranosRepository.ListarActivos();
@@ -36,15 +36,21 @@ namespace WebApplication1.Controllers
             return response;
         }
 
+        [HttpGet("listarBeneficiosVeteranos/{idVeterano}")]
+        public async Task<List<BeneficiosVeteranosDTO>> ObtenerPorVeterano(int idVeterano)
+        {
+            return await _beneficiosVeteranosRepository.ObtenerPorVeterano(idVeterano);
+        }
+
         // POST api/<UsuarioController>
-        [HttpPost("insertar")]
+        [HttpPost("crear")]
         public async Task Insertar([FromBody] BeneficiosVeteranos BeneficiosVeteranos)
         {
             await _beneficiosVeteranosRepository.Insertar(BeneficiosVeteranos);
         }
 
         // PUT api/<UsuarioController>/5
-        [HttpPut("actualizar/{id}")]
+        [HttpPut("editar/{id}")]
         public async Task Actualizar([FromBody] BeneficiosVeteranos BeneficiosVeteranos)
         {
             await _beneficiosVeteranosRepository.Actualizar(BeneficiosVeteranos);

@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
             _beneficioRepository = BeneficioRepository ?? throw new ArgumentException(nameof(BeneficioRepository));
         }
         // GET: api/<UsuarioController>
-        [HttpGet("listaractivos")]
+        [HttpGet("listar")]
         public async Task<List<Beneficio>> ListarActivos ()
         {
             return await _beneficioRepository.ListarActivos();
@@ -37,14 +37,14 @@ namespace WebApplication1.Controllers
         }
 
         // POST api/<UsuarioController>
-        [HttpPost("insertar")]
+        [HttpPost("crear")]
         public async Task Insertar([FromBody] Beneficio beneficio)
         {
             await _beneficioRepository.Insertar(beneficio);
         }
 
         // PUT api/<UsuarioController>/5
-        [HttpPut("actualizar/{id}")]
+        [HttpPut("editar/{id}")]
         public async Task Actualizar([FromBody] Beneficio beneficio)
         {
             await _beneficioRepository.Actualizar(beneficio);

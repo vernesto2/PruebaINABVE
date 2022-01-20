@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
             _veteranoRepository = veteranoRepository ?? throw new ArgumentException(nameof(veteranoRepository));
         }
         // GET: api/<UsuarioController>
-        [HttpGet("listaractivos")]
+        [HttpGet("listar")]
         public async Task<List<Veterano>> ListarActivos ()
         {
             return await _veteranoRepository.ListarActivos();
@@ -37,14 +37,14 @@ namespace WebApplication1.Controllers
         }
 
         // POST api/<UsuarioController>
-        [HttpPost("insertar")]
+        [HttpPost("crear")]
         public async Task Insertar([FromBody] Veterano veterano)
         {
             await _veteranoRepository.Insertar(veterano);
         }
 
         // PUT api/<UsuarioController>/5
-        [HttpPut("actualizar/{id}")]
+        [HttpPut("editar/{id}")]
         public async Task Actualizar([FromBody] Veterano veterano)
         {
             await _veteranoRepository.Actualizar(veterano);

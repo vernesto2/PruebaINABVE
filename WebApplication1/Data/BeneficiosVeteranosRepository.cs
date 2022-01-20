@@ -39,6 +39,29 @@ namespace WebApplication1.Data
             }
         }
 
+        public async Task<List<BeneficiosVeteranosDTO>> ObtenerPorVeterano(long IdVeterano)
+        {
+            using (SqlConnection sql = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("spBeneficiosVeteranos_ObtenerPorVeterano", sql))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@IdVeterano", IdVeterano));
+                    var response = new List<BeneficiosVeteranosDTO>();
+                    await sql.OpenAsync();
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            response.Add(MapTopBeneficiosVeteranosDTO(reader));
+                        }
+                    }
+                    return response;
+                }
+            }
+        }
+
         public async Task<BeneficiosVeteranos> ObtenerPorId(int Id)
         {
             using (SqlConnection sql = new SqlConnection(_connectionString))
@@ -104,10 +127,24 @@ namespace WebApplication1.Data
             return new BeneficiosVeteranos()
             {
                 Id = (long)reader["Id"],
-                IdVeterano = (int)reader["IdVeterano"],
-                IdBeneficio = (int)reader["IdBeneficio"],
+                IdBeneficio = (long)reader["IdBeneficio"],
+                IdVeterano = (long)reader["IdVeterano"],
                 FechaCreado = (DateTime)reader["FechaCreado"],
                 Activo = (bool)reader["Activo"]
+            };
+        }
+
+        private BeneficiosVeteranosDTO MapTopBeneficiosVeteranosDTO(SqlDataReader reader)
+        {
+            return new BeneficiosVeteranosDTO()
+            {
+                Id = (long)reader["Id"],
+                IdBeneficio = (long)reader["IdBeneficio"],
+                IdVeterano = (long)reader["IdVeterano"],
+                FechaCreado = (DateTime)reader["FechaCreado"],
+                Activo = (bool)reader["Activo"],
+                Nombre = reader["Nombre"].ToString()
+
             };
         }
 
