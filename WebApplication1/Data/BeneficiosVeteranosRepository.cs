@@ -98,6 +98,7 @@ namespace WebApplication1.Data
                     cmd.Parameters.Add(new SqlParameter("@Activo", beneficiosVeteranos.Activo));
                     await sql.OpenAsync();
                     await cmd.ExecuteNonQueryAsync();
+
                     return;
                 }
             }

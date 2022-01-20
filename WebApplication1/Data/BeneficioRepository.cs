@@ -39,6 +39,29 @@ namespace WebApplication1.Data
             }
         }
 
+        public async Task<List<Beneficio>> ListarBeneficiosVeteranos(int idVeterano)
+        {
+            using (SqlConnection sql = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("spBeneficio_ListarBeneficiosPorVeterano", sql))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@IdVeterano", idVeterano));
+                    var response = new List<Beneficio>();
+                    await sql.OpenAsync();
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            response.Add(MapTopBeneficio(reader));
+                        }
+                    }
+                    return response;
+                }
+            }
+        }
+
         public async Task<Beneficio> ObtenerPorId(int Id)
         {
             using (SqlConnection sql = new SqlConnection(_connectionString))

@@ -27,6 +27,12 @@ namespace WebApplication1.Controllers
             return await _beneficioRepository.ListarActivos();
         }
 
+        [HttpGet("listarbeneficiosveterano/{IdVeterano}")]
+        public async Task<List<Beneficio>> ListarBeneficiosVeterano(int IdVeterano)
+        {
+            return await _beneficioRepository.ListarBeneficiosVeteranos(IdVeterano);
+        }
+
         // GET api/<UsuarioController>/5
         [HttpGet("obtenerporid/{id}")]
         public async Task<ActionResult<Beneficio>> ObtenerPorId(int id)
